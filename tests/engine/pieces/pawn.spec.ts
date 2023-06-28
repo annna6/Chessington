@@ -6,16 +6,16 @@ import Square from '../../../src/engine/square';
 
 describe('Pawn', () => {
 
-    let board;
+    let board : Board;
     beforeEach(() => board = new Board());
 
     describe('white pawns', () => {
         
         it('can move one square up', () => {
-            const pawn = new Pawn(Player.WHITE);
+            const pawn : Pawn = new Pawn(Player.WHITE);
             board.setPiece(Square.at(0, 0), pawn);
 
-            const moves = pawn.getAvailableMoves(board);
+            const moves : Square[] = pawn.getAvailableMoves(board);
 
             moves.should.deep.include(Square.at(1, 0));
         });
@@ -28,7 +28,7 @@ describe('Pawn', () => {
             const pawn = new Pawn(Player.BLACK);
             board.setPiece(Square.at(7, 7), pawn);
 
-            const moves = pawn.getAvailableMoves(board);
+            const moves: Square[] = pawn.getAvailableMoves(board);
 
             moves.should.deep.include(Square.at(6, 7));
         });
